@@ -1,0 +1,160 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Anniversary!</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, beige, skyblue);
+        color: #333;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      h1,
+      h2,
+      p {
+        opacity: 0;
+        transform: scale(1);
+        transition: opacity 2s ease, transform 2s ease;
+      }
+
+      h1.animate,
+      h2.animate,
+      p.animate {
+        animation: pulseText 5s infinite;
+        opacity: 1;
+      }
+
+      .heart {
+        font-size: 100px;
+        color: #ff1493;
+        margin: 20px 0;
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes pulseText {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .frame {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        overflow-x: auto;
+        max-width: 80vw;
+        padding: 10px;
+        border: 5px solid beige;
+        border-radius: 15px;
+        background: linear-gradient(135deg, beige, skyblue);
+      }
+
+      .anniversary-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin: 0 5px;
+        border-radius: 10px;
+        transition: transform 15s ease, opacity 15s ease;
+        opacity: 0;
+      }
+
+      .anniversary-image.animate {
+        transform: translateY(-20px);
+        opacity: 1;
+      }
+
+      .anniversary-image:hover {
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="anniversary-audio" controls autoplay>
+      <source src="IFU.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <h1>Happy Anniversary!</h1>
+    <div class="heart">❤️</div>
+
+    <h2>Celebrating 1461 Days of Love</h2>
+
+    <p>
+      Dear my love, <br /><br />
+      It’s been 4 amazing years together, filled with love, laughter, and
+      beautiful memories, also a few squabbles along the way.<br />
+      I’m grateful for every moment we’ve shared, and I look forward to many
+      more years with you.
+    </p>
+
+    <p>
+      You’re the love of my life, my best friend, and my everything. Happy
+      anniversary!
+    </p>
+
+    <div class="frame">
+      <img class="anniversary-image" src="D1.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D2.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D3.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D4.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D5.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D6.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D7.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D8.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D9.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D10.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D11.jpg" alt="Anniversary Picture" />
+      <img class="anniversary-image" src="D12.jpg" alt="Anniversary Picture" />
+    </div>
+
+    <script>
+      const audioElement = document.getElementById("anniversary-audio");
+      const images = document.querySelectorAll(".anniversary-image");
+      const header1 = document.querySelector("h1");
+      const header2 = document.querySelector("h2");
+      const paragraphs = document.querySelectorAll("p");
+
+      audioElement.addEventListener("play", function () {
+        
+        images.forEach((image, index) => {
+          setTimeout(() => {
+            image.classList.add("animate");
+          }, index * 15000); 
+        });
+
+        
+        header1.classList.add("animate");
+        header2.classList.add("animate");
+        paragraphs.forEach((p) => {
+          p.classList.add("animate");
+        });
+      });
+
+      window.alert("Wishing you both a Happy Anniversary!");
+    </script>
+  </body>
+</html>
